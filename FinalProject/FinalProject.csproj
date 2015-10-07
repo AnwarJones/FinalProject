@@ -227,11 +227,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DCSite\page1.html" />
-    <Content Include="DCSite\page2.html" />
-    <Content Include="DCSite\page3.html" />
-    <Content Include="DCSite\page4.html" />
-    <Content Include="DCSite\page5.html" />
+    <Content Include="DCSite\main.html" />
+    <Content Include="DCSite\browse.html" />
+    <Content Include="DCSite\map.html" />
+    <Content Include="DCSite\signin.html" />
+    <Content Include="DCSite\admin.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
