@@ -227,6 +227,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DCSite\page1.html" />
+    <Content Include="DCSite\page2.html" />
+    <Content Include="DCSite\page3.html" />
+    <Content Include="DCSite\page4.html" />
+    <Content Include="DCSite\page5.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -302,7 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="DCSite\app.ts" />
-    <TypeScriptCompile Include="DCSite\controller.ts" />
+    <TypeScriptCompile Include="DCSite\controllers.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
