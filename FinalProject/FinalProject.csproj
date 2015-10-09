@@ -227,15 +227,19 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DCSite\blog.html" />
     <Content Include="DCSite\main.html" />
     <Content Include="DCSite\browse.html" />
     <Content Include="DCSite\map.html" />
     <Content Include="DCSite\signin.html" />
     <Content Include="DCSite\admin.html" />
+    <Content Include="DCSite\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
@@ -269,6 +273,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="daycare.json">
+      <BrowseToURL>~/daycare.json</BrowseToURL>
+    </Content>
+    <Content Include="Scripts\angular-resource.min.js.map" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -308,6 +316,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="DCSite\app.ts" />
     <TypeScriptCompile Include="DCSite\controllers.ts" />
+    <TypeScriptCompile Include="DCSite\services.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />

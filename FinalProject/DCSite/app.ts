@@ -1,7 +1,7 @@
 ﻿namespace DCSiteApp {
-    angular.module('DCSiteApp', ['ngRoute']).config(
-        ($routeProvider:
-            ng.route.IRouteProvider,
+    angular.module('DCSiteApp', ['ngRoute', 'ngResource']).config(
+        (
+            $routeProvider: ng.route.IRouteProvider,
             $locationProvider: ng.ILocationProvider)=>{
             $routeProvider  
                 .when('/', {
@@ -14,37 +14,31 @@
                 })
                 .when('/browse', {
                     templateUrl: '/DCSite/browse.html',
-                    controller: 'Page2Controller as vm'
+                    controller: 'BrowseController as vm'
                 })
                 .when('/map', {
                     templateUrl: '/DCSite/map.html',
-                    controller: 'Page3Controller as vm'
+                    controller: 'MapController as vm'
                 })
                 .when('/signIn', {
                     templateUrl: '/DCSite/signin.html',
-                    controller: 'Page4Controller as vm'
+                    controller: 'SigninController as vm'
                 })
                 .when('/admin', {
                     templateUrl: '/DCSite/admin.html',
-                    controller: 'Page5Controller as vm'
+                    controller: 'adminController as vm'
+                })
+                .when('/blog', {
+                    templateUrl: '/DCSite/blog.html',
+                    controller: 'Page3Controller as vm'
+                })
+                .when('/tipstools', {
+                    templateUrl: '/DCSite/tipstools.html',
+                    controller: 'tipsController as vm'
                 })
                 .otherwise('/');
 
             $locationProvider.html5Mode(true);
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

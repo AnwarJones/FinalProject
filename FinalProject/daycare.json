@@ -1,0 +1,56 @@
+﻿[
+  {
+    "daycareCenters": [
+      {
+        "centerName": "KinderCare",
+        "addressStreet": "456 PickUp Sticks",
+        "addressCity": "Atlanta",
+        "addressState": "Ga",
+        "addressZip": "30345",
+        "telephone": "404-555-9868",
+        "email": "kindercare@school.com",
+        "contactPerson": "Annette Frank",
+        "website": "www.kindercare.com",
+        "totalStudentSize": 125,
+        "hasOpenings": false,
+        "numberOfOpenings": 0,
+        "waitingListSize": 25,
+        "waitingListOpenings": true
+      },
+      {
+        "centerName": "Children Towne",
+        "addressStreet": "753 Tower St",
+        "addressCity": "Fairburn",
+        "addressState": "GA",
+        "addressZip": "30314",
+        "telephone": "770-555-1234",
+        "email": "ChildrenTowne@childrentowne.com",
+        "contactPerson": "Stephanie Johnson",
+        "website": "www.childrentown.com",
+        "totalStudentSize": 70,
+        "hasOpenings": true,
+        "numberOfOpenings": 5,
+        "waitingListSize": 25,
+        "waitingListOpenings": true
+
+      },
+      {
+        "centerName": "Frankies Kid Farm",
+        "addressStreet": "123 Odds Lane",
+        "addressCity": "Atlanta",
+        "addressState": "GA",
+        "addressZip": "30350",
+        "telephone": "404-555-2356",
+        "email": "info@frankieskids.com",
+        "contactPerson": "Francine Walker",
+        "website": "www.frankieskids.com",
+        "totalStudentSize": 25,
+        "hasOpenings": true,
+        "numberOfOpenings": 10,
+        "waitingListSize": 10,
+        "waitingListOpenings": true
+      }
+    ]
+
+  }
+]

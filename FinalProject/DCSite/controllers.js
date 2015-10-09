@@ -9,34 +9,35 @@ var DCSiteApp;
             return Page1Controller;
         })();
         angular.module('DCSiteApp').controller('Page1Controller', Page1Controller);
-        var Page2Controller = (function () {
-            function Page2Controller() {
-                this.message = 'This is page 2 this will be the main browsing page. Users will be able to browse through lists of Daycares based on specified categories';
+        var BrowseController = (function () {
+            function BrowseController($resource) {
+                this.$resource = $resource;
+                var daycareResource = $resource(dayCareUrl);
+                this.centers = daycareResource.query();
             }
-            return Page2Controller;
+            return BrowseController;
         })();
-        angular.module('DCSiteApp').controller('Page2Controller', Page2Controller);
-        var Page3Controller = (function () {
-            function Page3Controller() {
+        angular.module('DCSiteApp').controller('BrowseController', BrowseController);
+        var MapController = (function () {
+            function MapController() {
                 this.message = 'This is page 3 this page will feature a map that uses GoogleMaps api to display daycare centers near a certain address or in a user specified zipcode';
             }
-            return Page3Controller;
+            return MapController;
         })();
-        angular.module('DCSiteApp').controller('Page3Controller', Page3Controller);
-        var Page4Controller = (function () {
-            function Page4Controller() {
+        angular.module('DCSiteApp').controller('MapController', MapController);
+        var SigninController = (function () {
+            function SigninController() {
                 this.message = 'This is page 4 this page will be the log in page for users to log in or create a new user identity';
             }
-            return Page4Controller;
+            return SigninController;
         })();
-        angular.module('DCSiteApp').controller('Page4Controller', Page4Controller);
-        var Page5Controller = (function () {
-            function Page5Controller() {
+        angular.module('DCSiteApp').controller('SigninController', SigninController);
+        var AdminController = (function () {
+            function AdminController() {
                 this.message = 'This is page 5 this page will be for site admins or child care centers to enter new information about themselves or update existing files';
             }
-            return Page5Controller;
+            return AdminController;
         })();
-        angular.module('DCSiteApp').controller('Page5Controller', Page5Controller);
+        angular.module('DCSiteApp').controller('AdminController', AdminController);
     })(Controller = DCSiteApp.Controller || (DCSiteApp.Controller = {}));
 })(DCSiteApp || (DCSiteApp = {}));
-//# sourceMappingURL=controllers.js.map

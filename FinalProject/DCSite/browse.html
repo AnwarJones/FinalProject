@@ -1,3 +1,27 @@
-﻿<h1>Page 2</h1>
+﻿<h1>Browse Page</h1>
+<h1>Hi</h1>
 {{vm.message}}
 <hr />
+<table border="1">
+    <tr>
+        <th>Center Name</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+        <th>Telephone Number</th>
+        <th>Email Address</th>
+        <th>Contact Person</th>
+    </tr>
+    <tr ng-repeat="center in vm.centers">
+        <td>{{center.centerName}}</td>
+        <td>{{center.addressStreet}}</td>
+        <td>{{center.addressCity}}</td>
+        <td>{{center.addressState}}</td>
+        <td>{{center.addressZip}}</td>
+        <td>{{center.telephone}}</td>
+        <td>{{center.email}}</td>
+        <td>{{center.contactPerson}}</td>
+    </tr>
+
+</table>

@@ -1,41 +1,52 @@
 ﻿@{
     Layout = null;
 }
-    <html xmlns="http://www.w3.org/1999/xhtml" ng-app="DCSiteApp">
-    <head>
-        <base href="/" />
-        <title></title>
-    </head>
-    <body>
-        <h1>This is the main page</h1>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="DCSiteApp">
+<head>
+    <base href="/" />
+    <title></title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/DCSite/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div >
+            <h3 class="box1">Child Care Sea<a href="signin.html">r</a>ch</h3>
+            <a class="box1" href="/admin">Admin Page</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a class="btn btn-default" href="/main">Main</a></li>
+                <li class="dropdown btn btn-default">
+                    
+                    <a href="/browse" class="dropdown-toggle btn btn-default " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Types of Centers<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="centersByType.html">Home Based</a></li>
+                        <li><a href="centersByType.html">Stand Alone</a></li>
+                        <li><a href="centersByType.html">Chains and Franchise Child Care</a></li>
+                        <li><a href="centersByType.html">Religious Based</a></li>
 
-        <a href="/main">Main</a>
-        <a href="/browse">Browse Centers</a>
-        <a href="/map">Location Search</a>
+                    </ul>
+                <li><a class="btn btn-default" href="/map">Map</a></li>
+                <li><a class="btn btn-default" href="/tipsTools">Tips and Tools</a></li>
+                <li><a class="btn btn-default" href="/blog">Blog</a></li>
+            </ul>
+
+        </div>
+    </div>
         <a href="/signIn">Login</a>
         <a href="/admin">Admin</a>
-    
         <ng-view></ng-view>
+
+
 
         <script src="~/Scripts/angular.min.js"></script>
         <script src="~/Scripts/angular-route.min.js"></script>
+        <script src="~/Scripts/angular-resource.min.js"></script>
+        <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
         <script src="~/DCSite/app.js"></script>
-        <script src="~/DCSite/controller.js"></script>
-    </body>
+        <script src="~/DCSite/controllers.js"></script>
+
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
