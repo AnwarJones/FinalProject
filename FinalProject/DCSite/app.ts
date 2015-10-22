@@ -20,17 +20,17 @@
                     templateUrl: '/DCSite/map.html',
                     controller: 'MapController as vm'
                 })
-                .when('/signIn', {
+                .when('/signin', {
                     templateUrl: '/DCSite/signin.html',
                     controller: 'SigninController as vm'
                 })
                 .when('/admin', {
                     templateUrl: '/DCSite/admin.html',
-                    controller: 'adminController as vm'
+                    controller: 'AdminController as vm'
                 })
                 .when('/blog', {
                     templateUrl: '/DCSite/blog.html',
-                    controller: 'Page3Controller as vm'
+                    controller: 'BlogController as vm'
                 })
                 .when('/tipstools', {
                     templateUrl: '/DCSite/tipstools.html',
@@ -39,6 +39,33 @@
                 .otherwise('/');
 
             $locationProvider.html5Mode(true);
-        });
+        }).constant('daycareUrl', 'https://api.myjson.com/bins/1zbne');
+
+
+    angular.module('DCSiteApp').factory('authInterceptor', (
+        $q: ng.IQService,
+        $window: ng.IWindowService,
+        $location: ng.ILocationService
+    ) =>
+        ({
+            request: function (config) {
+                config.headers = config.headers || {};
+                let token = $window.sessionStorage.getItem('token');
+                if (token) {
+                    config.headers.Authorization = 'Bearer ' + token;
+                }
+                return config;
+            },
+            response: function (response) {
+                if (response.status === 401) {
+                    $location.path('/login');
+                }
+                return response || $q.when(response);
+            }
+        })
+    );
+    angular.module('DCSiteApp').config(function ($httpProvider) {
+        $httpProvider.interceptors.push('authInterceptor');
+    });
 
 }

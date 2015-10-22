@@ -3,10 +3,10 @@
     "daycareCenters": [
       {
         "centerName": "KinderCare",
-        "addressStreet": "456 PickUp Sticks",
-        "addressCity": "Atlanta",
-        "addressState": "Ga",
-        "addressZip": "30345",
+        "streetAddress": "456 PickUp Sticks",
+        "ciyt": "Atlanta",
+        "state": "Ga",
+        "zipCode": "30345",
         "telephone": "404-555-9868",
         "email": "kindercare@school.com",
         "contactPerson": "Annette Frank",

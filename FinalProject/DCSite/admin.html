@@ -1,3 +1,114 @@
-﻿<h1>Page 5</h1>
-{{vm.message}}
-<hr />
+﻿<form ng-submit="addCenter()">
+    <div>
+        <label>
+            Centers Name
+            <input ng-model="vm.center.name" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Street Address
+            <input ng-model="vm.center.Address.StreetAddress"type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            City
+            <input ng-model="vm.center.Address.City" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            State
+            <input ng-model="vm.center.Address.State"type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Zip Code
+            <input ng-model="vm.ceter.Address.ZipCode" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Telephone Number
+            <input ng-model="vm.center.telephone" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Email Address
+            <input ng-model="vm.center.Email" type="email" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Contact Person
+            <input ng-model="vm.center.ContactPerson"type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Website
+            <input ng-model="vm.center.Website" type="url" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Total Capacity
+            <input ng-model="vm.center.TotalCapacity" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Number of Openings
+            <input ng-model="vm.center.NumberOfOpenings"type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Waiting List Size
+            <input ng-model="vm.center.WaitingListSize"type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Waiting List Openings
+            <input ng-model="vm.center.WaitingListOpenings" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Religious Affliation
+            <input ng-model="vm.center.ReligiousAffliliation" type="radio" name="religion" value="yes" />Yes
+            <input ng-model="vm.center.ReligiousAffliliation" type="radio" name="religion" value="no" />No
+        </label>
+    </div>
+
+    <button>Submit</button>
+
+
+</form>
+<table border="1">
+    <tr>
+        <th>Center Name</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+        <th>Telephone Number</th>
+        <th>Email Address</th>
+        <th>Contact Person</th>
+    </tr>
+    <tr ng-repeat="center in vm.centers">
+        <td>{{center.centerName}}</td>
+        <td>{{center.addressStreet}}</td>
+        <td>{{center.addressCity}}</td>
+        <td>{{center.addressState}}</td>
+        <td>{{center.addressZip}}</td>
+        <td>{{center.telephone}}</td>
+        <td>{{center.email}}</td>
+        <td>{{center.contactPerson}}</td>
+    </tr>
+
+</table>
