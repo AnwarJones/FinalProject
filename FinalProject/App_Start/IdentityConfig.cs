@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using FinalProject.Models;
+using System;
 
 namespace FinalProject
 {
@@ -40,6 +41,11 @@ namespace FinalProject
                 manager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
+        }
+
+        internal void CreateAsync(Task<ApplicationUser> user, string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

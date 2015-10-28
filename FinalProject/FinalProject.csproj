@@ -55,6 +55,22 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.WebApi.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi.WebHost, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.WebApi.WebHost.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -117,6 +133,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -177,6 +197,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -211,6 +232,21 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Migrations\201510270353308_withCenters.cs" />
+    <Compile Include="Migrations\201510270353308_withCenters.Designer.cs">
+      <DependentUpon>201510270353308_withCenters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510270419128_next1.cs" />
+    <Compile Include="Migrations\201510270419128_next1.Designer.cs">
+      <DependentUpon>201510270419128_next1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510271654483_newlyminted.cs" />
+    <Compile Include="Migrations\201510271654483_newlyminted.Designer.cs">
+      <DependentUpon>201510271654483_newlyminted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EFRepository.cs" />
+    <Compile Include="Models\IEFRepository.cs" />
+    <Compile Include="Services\BlogPostServices.cs" />
     <Compile Include="DCSite\Classes\Address.cs" />
     <Compile Include="DCSite\Classes\BlogPost.cs" />
     <Compile Include="DCSite\Classes\DaycareCenter.cs" />
@@ -224,10 +260,12 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\GenericRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Services\IBlogPostServices.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -236,12 +274,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DCSite\blog.html" />
-    <Content Include="DCSite\main.html" />
-    <Content Include="DCSite\browse.html" />
-    <Content Include="DCSite\map.html" />
-    <Content Include="DCSite\signin.html" />
-    <Content Include="DCSite\admin.html" />
+    <Content Include="DCSite\Views\addBlog.html" />
+    <Content Include="DCSite\Views\blog.html" />
+    <Content Include="DCSite\Views\EditBlogs.html" />
+    <Content Include="DCSite\Views\main.html" />
+    <Content Include="DCSite\Views\browse.html" />
+    <Content Include="DCSite\Views\map.html" />
+    <Content Include="DCSite\Views\signin.html" />
+    <Content Include="DCSite\Views\admin.html" />
     <Content Include="DCSite\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -317,12 +357,15 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\ngApps\" />
+    <Folder Include="GitIgnore\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="DCSite\accountController.ts" />
+    <TypeScriptCompile Include="DCSite\accountService.ts" />
     <TypeScriptCompile Include="DCSite\app.ts" />
     <TypeScriptCompile Include="DCSite\controllers.ts" />
     <TypeScriptCompile Include="DCSite\services.ts" />
@@ -341,6 +384,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201510220547220_start.resx">
       <DependentUpon>201510220547220_start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510270353308_withCenters.resx">
+      <DependentUpon>201510270353308_withCenters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510270419128_next1.resx">
+      <DependentUpon>201510270419128_next1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510271654483_newlyminted.resx">
+      <DependentUpon>201510271654483_newlyminted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

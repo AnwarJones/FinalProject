@@ -9,11 +9,11 @@ var DCSiteApp;
             AdminServices.prototype.listCenters = function () {
                 return this.AdminResource.query();
             };
-            AdminServices.prototype.saveCenter = function (center) {
+            AdminServices.prototype.save = function (center) {
                 return this.AdminResource.save(center).$promise;
             };
-            AdminServices.prototype.deleteCenter = function (id) {
-                return this.AdminResource.delete({ id: id }).$promise;
+            AdminServices.prototype.remove = function (id) {
+                return this.AdminResource.remove({ id: id }).$promise;
             };
             return AdminServices;
         })();
@@ -25,6 +25,15 @@ var DCSiteApp;
             }
             BlogService.prototype.listBlogs = function () {
                 return this.BlogResource.query();
+            };
+            BlogService.prototype.save = function (blog) {
+                return this.BlogResource.save(blog).$promise;
+            };
+            BlogService.prototype.get = function (id) {
+                return this.BlogResource.get({ id: id });
+            };
+            BlogService.prototype.remove = function (id) {
+                return this.BlogResource.remove({ id: id }).$promise;
             };
             return BlogService;
         })();
@@ -43,3 +52,4 @@ var DCSiteApp;
         angular.module("DCSiteApp").service("BrowseService", BrowseService);
     })(Services = DCSiteApp.Services || (DCSiteApp.Services = {}));
 })(DCSiteApp || (DCSiteApp = {}));
+//# sourceMappingURL=services.js.map

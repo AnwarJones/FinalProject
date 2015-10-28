@@ -9,6 +9,7 @@ namespace FinalProject.DCSite.Classes
 {
     public class DaycareCenter
     {
+        public int Id { get; set; }
         [Required (ErrorMessage ="Center Name is required")]
         public string CenterName { get; set; }
         public Address CenterAddress { get; set; }
@@ -18,7 +19,6 @@ namespace FinalProject.DCSite.Classes
         [Required(ErrorMessage = "Contact Person is required")]
         public string ContactPerson { get; set; }
         public string Website { get; set; }
-        [MaxLength (4,ErrorMessage ="Invalid Entry in DayCare size")]
         public int TotalCapacity { get; set; }
         public int NumberOfOpenings { get; set; } 
         public int WaitingListSize { get; set; }

@@ -12,6 +12,7 @@ namespace FinalProject
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();

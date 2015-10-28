@@ -264,7 +264,7 @@ namespace FinalProject.Controllers
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
@@ -328,7 +328,7 @@ namespace FinalProject.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, FirstName=model.FirstName, LastName = model.LastName };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

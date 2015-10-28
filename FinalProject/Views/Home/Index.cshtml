@@ -8,12 +8,13 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/DCSite/style.css" rel="stylesheet" />
 </head>
-<body>
+<body ng-controller="AccountController as account">
     <div class="container-fluid">
         <div class="row">
             <div>
                 <h3 class="box1">Child Care Sea<a href="/admin">r</a>ch</h3>
-                <a class="box1" href="/signin">Sign In</a>
+                <a href="/signin" ng-show="!account.isLoggedIn()">Sign In</a>
+                <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">logout</a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
@@ -40,6 +41,8 @@
         <script src="~/DCSite/app.js"></script>
         <script src="~/DCSite/services.js"></script>
         <script src="~/DCSite/controllers.js"></script>
+        <script src="~/DCSite/accountController.js"></script>
+        <script src="~/DCSite/accountService.js"></script>
 
 </body>
 </html>

@@ -5,11 +5,11 @@
         public listCenters() {
             return this.AdminResource.query();
         }
-        public saveCenter(center) {
+        public save(center) {
             return this.AdminResource.save(center).$promise;
         }
-        public deleteCenter(id: number) {
-            return this.AdminResource.delete({ id: id }).$promise;
+        public remove(id) {
+            return this.AdminResource.remove({ id: id }).$promise;
         }
         
         constructor(daycareUrl: string, $resource: ng.resource.IResourceService) {
@@ -24,6 +24,15 @@
 
         public listBlogs() {
             return this.BlogResource.query();
+        }
+        public save(blog) {
+            return this.BlogResource.save(blog).$promise;
+        }
+        public get(id) {
+            return this.BlogResource.get({ id: id });
+        }
+        public remove(id) {
+            return this.BlogResource.remove({ id: id }).$promise;
         }
 
         constructor($resource: angular.resource.IResourceService) {

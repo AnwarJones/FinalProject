@@ -1,0 +1,58 @@
+﻿
+<div class="row">
+    <div class="col-md-3">
+        <form name="registerForm" ng-submit="vm.register()">
+            <div class="right">
+                <label>First Name</label>
+                <input name="firstname" ng-model="vm.registerUser.firstName" />
+                <div ng-show="loginForm.username.$touched&& loginForm.username.$error.required">First name is required.</div>
+            </div>
+            <div class="right">
+                <label>Last Name</label>
+                <input name="lastname" ng-model="vm.registerUser.lastName" />
+                <div ng-show="loginForm.lastname.$touched&& loginForm.lastname.$error.required">Last Name is required.</div>
+            </div>
+            <div class="right">
+                <label>Email</label>
+                <input name="lastname" ng-model="vm.registerUser.email" />
+                <div ng-show="loginForm.lastname.$touched&& loginForm.lastname.$error.required">Last Name is required.</div>
+            </div>              
+            <div class="right">
+                <label>Password</label>
+                <input name="password" ng-model="vm.registerUser.password" />
+                <div ng-show="loginForm.password.$touched&& loginForm.password.$error.required">Password is required.</div>
+            </div>
+            <div class="right">
+                <label>Verify Password</label>
+                <input name="password" ng-model="vm.registerUser.confirmPassword" />
+                <input class="right" type="submit" value="Sign In" />
+                <div ng-show="loginForm.password.$touched&& loginForm.password.$error.required">Password is required.</div>
+            </div>
+            
+        </form>
+
+    </div>
+
+</div>
+
+
+
+
+    <div class="col-md-offset-3 col-md-5">
+        <form name="signinForm" ng-submit="vm.login()">
+            <div class="right">
+                <label>Username/Email Address</label>
+                <input name="username" ng-model="vm.loginUser.userName" />
+                <div ng-show="loginForm.username.$touched&& loginForm.username.$error.required">Username is required.</div>
+            </div>
+            <div class="right">
+                <label>Password</label>
+                <input name="password" ng-model="vm.loginUser.password" /><br />
+                <input class="right" type="submit" value="Sign In" />
+                <div ng-show="loginForm.password.$touched&& loginForm.username.$error.required">Password is required.</div>
+            </div>
+            
+        </form>
+</div>
+
+

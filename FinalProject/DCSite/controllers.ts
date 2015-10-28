@@ -1,7 +1,7 @@
-﻿namespace DCSiteApp.Controller {  
+﻿namespace DCSiteApp.Controllers {  
    
 
-    class BrowseController {
+    export class BrowseController {
 
         public centers;
 
@@ -9,52 +9,62 @@
             this.centers = BrowseService.ListCenters();
         }
     }
-    angular.module("DCSiteApp").controller("BrowseController", BrowseController);
 
-    class AdminController {
+    export class AdminController {
         public centers;
-        
+        public centerToAdd;
 
-        public centerToAdd
+
         public addCenter() {
-            this.AdminService.saveCenter(this.centerToAdd).then(() => {
+            this.AdminService.save(this.centerToAdd).then(() => {
                 this.$location.path('/');
             });
         }
 
         constructor(private AdminService: DCSiteApp.Services.AdminServices, private $location: ng.ILocationService) {
-            this.centers = AdminService.listCenters;
+            this.centers = AdminService.listCenters();
         }
     
     }
-    angular.module("DCSiteApp").controller("AdminController", AdminController);
+    
 
-    class BlogController {
-        public blog
+    export class BlogController {
+        private BlogResource;
+        public blogs;
 
         constructor(private BlogService: DCSiteApp.Services.BlogService, private $location: ng.ILocationService) {
-            this.blog = BlogService.listBlogs();
+            this.blogs = BlogService.listBlogs();
         }
 
         
     }
     angular.module("DCSiteApp").controller("BlogController", BlogController);
 
+    export class AddBlogController {
+        public blogToAdd
+        public save() {
+            this.blogService.save(this.blogToAdd).then(() => {
+                this.$location.path('/');
+            })
+        }
+        constructor(private blogService: DCSiteApp.Services.BlogService,
+            private $location: angular.ILocationService
+        ) {
 
-    class Page1Controller {
+        }
+    }
+
+
+
+
+
+    export class Page1Controller {
         message = 'This is the main page useful for holding site mission statement and purpose';
     }
-    angular.module('DCSiteApp').controller('Page1Controller', Page1Controller);
 
-    class MapController {
+    export class MapController {
         message = 'This  page will feature a map that uses GoogleMaps api to display daycare centers near a certain address or in a user specified zipcode';
     }
-    angular.module('DCSiteApp').controller('MapController', MapController);
-
-    class SigninController {
-        message = 'This page will be the log in page for users to log in or create a new user identity';
-    }
-    angular.module('DCSiteApp').controller('SigninController',SigninController);
 
 
     

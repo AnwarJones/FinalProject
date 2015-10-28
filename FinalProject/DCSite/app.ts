@@ -5,35 +5,42 @@
             $locationProvider: ng.ILocationProvider)=>{
             $routeProvider  
                 .when('/', {
-                    templateUrl: '/DCSite/main.html',
-                    controller: 'Page1Controller as vm'
+                    templateUrl: '/DCSite/Views/main.html',
+                    controller: DCSiteApp.Controllers.Page1Controller,
+                    controllerAs: 'vm'
                 })
                 .when('/main', {
-                    templateUrl: '/DCSite/main.html',
-                    controller: 'Page1Controller as vm'
+                    templateUrl: '/DCSite/Views/main.html',
+                    controller: DCSiteApp.Controllers.Page1Controller,
+                    controllerAs: 'vm'
                 })
                 .when('/browse', {
-                    templateUrl: '/DCSite/browse.html',
-                    controller: 'BrowseController as vm'
+                    templateUrl: '/DCSite/Views/browse.html',
+                    controller: DCSiteApp.Controllers.BrowseController,
+                    controllerAs: 'vm'
                 })
                 .when('/map', {
-                    templateUrl: '/DCSite/map.html',
-                    controller: 'MapController as vm'
+                    templateUrl: '/DCSite/Views/map.html',
+                    controller: DCSiteApp.Controllers.MapController,
+                    controllerAs: "vm"
                 })
                 .when('/signin', {
-                    templateUrl: '/DCSite/signin.html',
-                    controller: 'SigninController as vm'
+                    templateUrl: '/DCSite/Views/signin.html',
+                    controller: DCSiteApp.Controllers.SigninController,
+                    controllerAs: "vm"
                 })
                 .when('/admin', {
-                    templateUrl: '/DCSite/admin.html',
-                    controller: 'AdminController as vm'
+                    templateUrl: '/DCSite/Views/admin.html',
+                    controller: DCSiteApp.Controllers.AdminController,
+                    controllerAs: 'vm'
                 })
                 .when('/blog', {
-                    templateUrl: '/DCSite/blog.html',
-                    controller: 'BlogController as vm'
+                    templateUrl: '/DCSite/Views/blog.html',
+                    controller: DCSiteApp.Controllers.BlogController,
+                    controllerAs: 'vm'
                 })
                 .when('/tipstools', {
-                    templateUrl: '/DCSite/tipstools.html',
+                    templateUrl: '/DCSite/Views/tipstools.html',
                     controller: 'tipsController as vm'
                 })
                 .otherwise('/');
