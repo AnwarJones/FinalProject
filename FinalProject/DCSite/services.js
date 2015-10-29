@@ -3,14 +3,17 @@ var DCSiteApp;
     var Services;
     (function (Services) {
         var AdminServices = (function () {
-            function AdminServices(daycareUrl, $resource) {
-                this.AdminResource = $resource(daycareUrl);
+            function AdminServices($resource) {
+                this.AdminResource = $resource('/api/daycare/:id');
             }
             AdminServices.prototype.listCenters = function () {
                 return this.AdminResource.query();
             };
             AdminServices.prototype.save = function (center) {
                 return this.AdminResource.save(center).$promise;
+            };
+            AdminServices.prototype.get = function (id) {
+                return this.AdminResource.get({ id: id });
             };
             AdminServices.prototype.remove = function (id) {
                 return this.AdminResource.remove({ id: id }).$promise;
@@ -41,7 +44,7 @@ var DCSiteApp;
         angular.module("DCSiteApp").service("BlogService", BlogService);
         var BrowseService = (function () {
             function BrowseService(daycareUrl, $resource) {
-                this.BrowseResource = $resource(daycareUrl);
+                this.BrowseResource = $resource('/api/daycare/:id');
             }
             BrowseService.prototype.ListCenters = function () {
                 return this.BrowseResource.query();
@@ -52,4 +55,3 @@ var DCSiteApp;
         angular.module("DCSiteApp").service("BrowseService", BrowseService);
     })(Services = DCSiteApp.Services || (DCSiteApp.Services = {}));
 })(DCSiteApp || (DCSiteApp = {}));
-//# sourceMappingURL=services.js.map

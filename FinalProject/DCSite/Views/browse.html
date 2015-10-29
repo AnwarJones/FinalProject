@@ -1,5 +1,5 @@
 ﻿<h1>Browse Page</h1>
-<h1>Hi</h1>
+
 <hr />
 <table border="1">
     <tr>
@@ -14,14 +14,15 @@
     </tr>
     <tr ng-repeat="center in vm.centers">
         <td>{{center.centerName}}</td>
-        <td>{{center.addressStreet}}</td>
-        <td>{{center.addressCity}}</td>
-        <td>{{center.addressState}}</td>
-        <td>{{center.addressZip}}</td>
-        <td>{{center.telephone}}</td>
+        <td>{{center.centerAddress.streetAddress}}</td>
+        <td>{{center.centerAddress.city}}</td>
+        <td>{{center.centerAddress.state}}</td>
+        <td>{{center.centerAddress.zipCode}}</td>
+        <td>{{center.telephoneNumber}}</td>
         <td>{{center.email}}</td>
         <td>{{center.contactPerson}}</td>
-        <td ng-show="account.getClaim('CanEditDaycare')"><a href="/admin" >edit</a></td>        
+        <td ng-show="account.getClaim('CanEditDaycare')"><a href="/admin" >Edit</a></td>
+        <td ng-show="account.getClaim('CanEditDaycare')"><a href="/deleteCenter/{{center.id}}">Delete</a></td>        
     </tr>
     
 

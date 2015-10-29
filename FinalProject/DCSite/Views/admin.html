@@ -109,6 +109,8 @@
         <td>{{center.telephone}}</td>
         <td>{{center.email}}</td>
         <td>{{center.contactPerson}}</td>
+        <td ng-show="account.getClaim('CanEditDaycare')"><a href="/delete/{{center.id}}">Delete</a></td>
+
     </tr>
 
 </table>

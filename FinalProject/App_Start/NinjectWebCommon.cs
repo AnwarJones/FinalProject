@@ -67,6 +67,8 @@ namespace FinalProject.App_Start
             kernel.Bind<IEFRepository>().To<EFRepository>();
             kernel.Bind<IGenericRepository>().To<GenericRepository>();
             kernel.Bind<IBlogPostService>().To<BlogPostService>();
+            kernel.Bind<IDayCareService>().To<DayCareService>();
+            kernel.Bind<IDaycareEFRepository>().To<DaycareEFRepository>();
         }        
     }
 }

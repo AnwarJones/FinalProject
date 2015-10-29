@@ -1,6 +1,11 @@
 var DCSiteApp;
 (function (DCSiteApp) {
-    angular.module('DCSiteApp', ['ngRoute', 'ngResource']).config(function ($routeProvider, $locationProvider) {
+    angular.module('DCSiteApp', ['ngRoute', 'ngResource', 'uiGmapgoogle-maps']).config(function (uiGmapGoogleMapApiProvider, $routeProvider, $locationProvider) {
+        uiGmapGoogleMapApiProvider.configure({
+            //    key: 'your api key',
+            v: '3.20',
+            libraries: 'weather,geometry,visualization'
+        });
         $routeProvider
             .when('/', {
             templateUrl: '/DCSite/Views/main.html',
@@ -37,9 +42,10 @@ var DCSiteApp;
             controller: DCSiteApp.Controllers.BlogController,
             controllerAs: 'vm'
         })
-            .when('/tipstools', {
-            templateUrl: '/DCSite/Views/tipstools.html',
-            controller: 'tipsController as vm'
+            .when('/deleteCenter/:id', {
+            templateUrl: '/DCSite/Views/deleteCenter.html',
+            controller: DCSiteApp.Controllers.DelCenterController,
+            controllerAs: 'vm'
         })
             .otherwise('/');
         $locationProvider.html5Mode(true);
@@ -66,4 +72,3 @@ var DCSiteApp;
         $httpProvider.interceptors.push('authInterceptor');
     });
 })(DCSiteApp || (DCSiteApp = {}));
-//# sourceMappingURL=app.js.map

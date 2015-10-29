@@ -34,7 +34,6 @@ var DCSiteApp;
             return BlogController;
         })();
         Controllers.BlogController = BlogController;
-        angular.module("DCSiteApp").controller("BlogController", BlogController);
         var AddBlogController = (function () {
             function AddBlogController(blogService, $location) {
                 this.blogService = blogService;
@@ -49,6 +48,22 @@ var DCSiteApp;
             return AddBlogController;
         })();
         Controllers.AddBlogController = AddBlogController;
+        var DelCenterController = (function () {
+            function DelCenterController(deleteService, $location, $routeParams) {
+                this.deleteService = deleteService;
+                this.$location = $location;
+                this.centerToDelete = this.deleteService.get($routeParams['id']);
+            }
+            DelCenterController.prototype.remove = function () {
+                var _this = this;
+                debugger;
+                this.deleteService.remove(this.centerToDelete.id).then(function () {
+                    _this.$location.path('/admin');
+                });
+            };
+            return DelCenterController;
+        })();
+        Controllers.DelCenterController = DelCenterController;
         var Page1Controller = (function () {
             function Page1Controller() {
                 this.message = 'This is the main page useful for holding site mission statement and purpose';
@@ -58,11 +73,10 @@ var DCSiteApp;
         Controllers.Page1Controller = Page1Controller;
         var MapController = (function () {
             function MapController() {
-                this.message = 'This  page will feature a map that uses GoogleMaps api to display daycare centers near a certain address or in a user specified zipcode';
+                this.map = { center: { latitude: 33.7550, longitude: -84.3900 }, zoom: 10 };
             }
             return MapController;
         })();
         Controllers.MapController = MapController;
     })(Controllers = DCSiteApp.Controllers || (DCSiteApp.Controllers = {}));
 })(DCSiteApp || (DCSiteApp = {}));
-//# sourceMappingURL=controllers.js.map

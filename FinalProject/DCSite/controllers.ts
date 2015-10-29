@@ -14,14 +14,15 @@
         public centers;
         public centerToAdd;
 
-
         public addCenter() {
             this.AdminService.save(this.centerToAdd).then(() => {
                 this.$location.path('/');
             });
         }
 
-        constructor(private AdminService: DCSiteApp.Services.AdminServices, private $location: ng.ILocationService) {
+        constructor(private AdminService: DCSiteApp.Services.AdminServices,
+            private $location: ng.ILocationService
+        ) {
             this.centers = AdminService.listCenters();
         }
     
@@ -38,7 +39,6 @@
 
         
     }
-    angular.module("DCSiteApp").controller("BlogController", BlogController);
 
     export class AddBlogController {
         public blogToAdd
@@ -53,6 +53,24 @@
 
         }
     }
+    export class DelCenterController {
+        public centerToDelete;
+        
+
+        public remove() {
+            debugger
+            this.deleteService.remove(this.centerToDelete.id).then(() => {
+                this.$location.path('/admin');
+            });
+        }
+
+        constructor(private deleteService: DCSiteApp.Services.AdminServices,
+            private $location: ng.ILocationService,
+            $routeParams: angular.route.IRouteParamsService
+        ) {
+            this.centerToDelete = this.deleteService.get($routeParams['id'])
+        }
+    }
 
 
 
@@ -63,7 +81,12 @@
     }
 
     export class MapController {
-        message = 'This  page will feature a map that uses GoogleMaps api to display daycare centers near a certain address or in a user specified zipcode';
+
+        public map = { center: { latitude: 33.7550, longitude: -84.3900 }, zoom: 10 };
+        constructor() {
+            
+        }
+
     }
 
 

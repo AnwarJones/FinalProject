@@ -8,16 +8,21 @@
         public save(center) {
             return this.AdminResource.save(center).$promise;
         }
+        public get(id) {
+            return this.AdminResource.get({ id: id });
+        }
+
         public remove(id) {
             return this.AdminResource.remove({ id: id }).$promise;
         }
         
-        constructor(daycareUrl: string, $resource: ng.resource.IResourceService) {
-            this.AdminResource = $resource(daycareUrl)
+        constructor($resource: ng.resource.IResourceService) {
+            this.AdminResource = $resource('/api/daycare/:id');
         }
 
     }
     angular.module("DCSiteApp").service("AdminServices", AdminServices);
+
     export class BlogService {
         private BlogResource
 
@@ -51,7 +56,7 @@
         }
 
         constructor(daycareUrl: string, $resource: ng.resource.IResourceService) {
-            this.BrowseResource = $resource(daycareUrl);
+            this.BrowseResource = $resource('/api/daycare/:id');
         }
     }
     angular.module("DCSiteApp").service("BrowseService", BrowseService);

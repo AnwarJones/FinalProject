@@ -1,8 +1,15 @@
 ﻿namespace DCSiteApp {
-    angular.module('DCSiteApp', ['ngRoute', 'ngResource']).config(
+    angular.module('DCSiteApp', ['ngRoute', 'ngResource', 'uiGmapgoogle-maps']).config(
         (
+            uiGmapGoogleMapApiProvider: any,
             $routeProvider: ng.route.IRouteProvider,
             $locationProvider: ng.ILocationProvider)=>{
+            uiGmapGoogleMapApiProvider.configure({
+                //    key: 'your api key',
+                v: '3.20', //defaults to latest 3.X anyhow
+                libraries: 'weather,geometry,visualization'
+            });
+
             $routeProvider  
                 .when('/', {
                     templateUrl: '/DCSite/Views/main.html',
@@ -39,9 +46,10 @@
                     controller: DCSiteApp.Controllers.BlogController,
                     controllerAs: 'vm'
                 })
-                .when('/tipstools', {
-                    templateUrl: '/DCSite/Views/tipstools.html',
-                    controller: 'tipsController as vm'
+                .when('/deleteCenter/:id', {
+                    templateUrl: '/DCSite/Views/deleteCenter.html',
+                    controller: DCSiteApp.Controllers.DelCenterController,
+                    controllerAs: 'vm'
                 })
                 .otherwise('/');
 

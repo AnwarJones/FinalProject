@@ -10,10 +10,63 @@ using System.Web.Http;
 
 namespace FinalProject.API
 {
-    public class DayCareController : ApiController
+    public class DaycareController : ApiController
     {
+        private IDayCareService _daycareService;
 
+        public DaycareController(IDayCareService daycareService)
+        {
+            this._daycareService = daycareService;
+        }
+        public IEnumerable<DaycareCenter> Get()
+        {
+            return _daycareService.ListCenters();
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            var blogPost = _daycareService.GetCenter(id);
+            if (blogPost == null)
+            {
+                return NotFound();
+            }
+            return Ok(blogPost);
+        }
+
+
+        public IHttpActionResult Post(DaycareCenter center)
+        {
+            if (center == null)
+            {
+                return BadRequest("Missing Daycare Center Post");
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (center.Id == 0)
+            {
+                _daycareService.AddCenter(center);
+                return Created("/Centers" + center.Id, center);
+            }
+            else
+            {
+                _daycareService.EditCenter(center);
+                return Ok(center);
+            }
+        }
+        public IHttpActionResult Delete(int id)
+        {
+            var original = _daycareService.GetCenter(id);
+            if (original == null)
+            {
+                return NotFound();
+            }
+            _daycareService.DeleteCenter(id);
+            return Ok();
+        }
     }
+}
 
     public class BlogPostController : ApiController
     {
@@ -71,4 +124,4 @@ namespace FinalProject.API
             return Ok();
         }
     }
-}
+

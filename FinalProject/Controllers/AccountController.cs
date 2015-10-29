@@ -329,7 +329,7 @@ namespace FinalProject.Controllers
             }
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, FirstName=model.FirstName, LastName = model.LastName };
-
+            UserManager.AddClaim(user.Id, new Claim("CanMakeComments", "true"));//DO I WANT TO ADD MORE CLAIMS?
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
