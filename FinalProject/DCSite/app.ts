@@ -46,15 +46,35 @@
                     controller: DCSiteApp.Controllers.BlogController,
                     controllerAs: 'vm'
                 })
+                .when('/addBlog', {
+                    templateUrl: '/DCSite/Views/addBlog.html',
+                    controller: DCSiteApp.Controllers.AddBlogController,
+                    controllerAs: 'vm'
+                })
+                .when('/editBlog/:id', {
+                    templateUrl: '/DCSite/Views/editBlog.html',
+                    controller: DCSiteApp.Controllers.EditBlogController,
+                    controllerAs: 'vm'
+                })
+                .when('/deleteBlog/:id', {
+                    templateUrl: '/DCSite/Views/deleteBlog.html',
+                    controller: DCSiteApp.Controllers.DeleteBlogController,
+                    controllerAs: 'vm'
+                })
                 .when('/deleteCenter/:id', {
                     templateUrl: '/DCSite/Views/deleteCenter.html',
                     controller: DCSiteApp.Controllers.DelCenterController,
                     controllerAs: 'vm'
                 })
+                .when('/editCenter/:id', {
+                    templateUrl: '/DCSite/Views/editCenter.html',
+                    controller: DCSiteApp.Controllers.EditCenterController,
+                    controllerAs: 'vm'
+                })
                 .otherwise('/');
 
             $locationProvider.html5Mode(true);
-        }).constant('daycareUrl', 'https://api.myjson.com/bins/1zbne');
+        })
 
 
     angular.module('DCSiteApp').factory('authInterceptor', (
@@ -82,5 +102,5 @@
     angular.module('DCSiteApp').config(function ($httpProvider) {
         $httpProvider.interceptors.push('authInterceptor');
     });
-
+    
 }

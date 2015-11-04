@@ -193,7 +193,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\DayCareController.cs" />
+    <Compile Include="API\BlogPostController.cs" />
+    <Compile Include="API\DaycareController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -244,6 +245,38 @@
     <Compile Include="Migrations\201510271654483_newlyminted.Designer.cs">
       <DependentUpon>201510271654483_newlyminted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510292053190_daycaretypes.cs" />
+    <Compile Include="Migrations\201510292053190_daycaretypes.Designer.cs">
+      <DependentUpon>201510292053190_daycaretypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510292153023_newstart.cs" />
+    <Compile Include="Migrations\201510292153023_newstart.Designer.cs">
+      <DependentUpon>201510292153023_newstart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510300124505_another.cs" />
+    <Compile Include="Migrations\201510300124505_another.Designer.cs">
+      <DependentUpon>201510300124505_another.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510312036373_geocode.cs" />
+    <Compile Include="Migrations\201510312036373_geocode.Designer.cs">
+      <DependentUpon>201510312036373_geocode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511010336055_ummm.cs" />
+    <Compile Include="Migrations\201511010336055_ummm.Designer.cs">
+      <DependentUpon>201511010336055_ummm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511021714166_oops.cs" />
+    <Compile Include="Migrations\201511021714166_oops.Designer.cs">
+      <DependentUpon>201511021714166_oops.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511021723304_fixedmaybe.cs" />
+    <Compile Include="Migrations\201511021723304_fixedmaybe.Designer.cs">
+      <DependentUpon>201511021723304_fixedmaybe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511021755567_letssee.cs" />
+    <Compile Include="Migrations\201511021755567_letssee.Designer.cs">
+      <DependentUpon>201511021755567_letssee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DaycareEFRepository.cs" />
     <Compile Include="Models\EFRepository.cs" />
     <Compile Include="Models\IDaycareEFRepository.cs" />
@@ -280,8 +313,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="DCSite\Views\addBlog.html" />
     <Content Include="DCSite\Views\blog.html" />
+    <Content Include="DCSite\Views\deleteBlog.html" />
     <Content Include="DCSite\Views\deleteCenter.html" />
-    <Content Include="DCSite\Views\EditBlogs.html" />
+    <Content Include="DCSite\Views\editBlog.html" />
+    <Content Include="DCSite\Views\editCenter.html" />
     <Content Include="DCSite\Views\main.html" />
     <Content Include="DCSite\Views\browse.html" />
     <Content Include="DCSite\Views\map.html" />
@@ -380,6 +415,7 @@
     <TypeScriptCompile Include="DCSite\accountService.ts" />
     <TypeScriptCompile Include="DCSite\app.ts" />
     <TypeScriptCompile Include="DCSite\controllers.ts" />
+    <TypeScriptCompile Include="DCSite\filters.ts" />
     <TypeScriptCompile Include="DCSite\services.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
@@ -405,6 +441,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510271654483_newlyminted.resx">
       <DependentUpon>201510271654483_newlyminted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510292053190_daycaretypes.resx">
+      <DependentUpon>201510292053190_daycaretypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510292153023_newstart.resx">
+      <DependentUpon>201510292153023_newstart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510300124505_another.resx">
+      <DependentUpon>201510300124505_another.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510312036373_geocode.resx">
+      <DependentUpon>201510312036373_geocode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511010336055_ummm.resx">
+      <DependentUpon>201511010336055_ummm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511021714166_oops.resx">
+      <DependentUpon>201511021714166_oops.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511021723304_fixedmaybe.resx">
+      <DependentUpon>201511021723304_fixedmaybe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511021755567_letssee.resx">
+      <DependentUpon>201511021755567_letssee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

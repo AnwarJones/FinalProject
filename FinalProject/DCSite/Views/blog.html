@@ -7,6 +7,8 @@
         <div>{{blog.source}}</div>
         <div>{{blog.postingDate}}</div>
         <div>{{blog.articleContent}}</div>
+        <div ng-show="account.getClaim('CanEditDaycare')"><a href="/editBlog/{{blog.id}}">Edit</a></div>
+        <div ng-show="account.getClaim('CanEditDaycare')"><a href="/deleteBlog/{{blog.id}}">Delete</a></div>
     </li>
 
 </ul>

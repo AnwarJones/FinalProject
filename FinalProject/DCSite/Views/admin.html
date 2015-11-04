@@ -1,87 +1,98 @@
-﻿<form ng-submit="addCenter()">
+﻿<form ng-submit="vm.addCenter()">
     <div>
         <label>
             Centers Name
-            <input ng-model="vm.center.name" type="text" />
+            <input ng-model="vm.centerToAdd.centerName" type="text" />
         </label>
     </div>
     <div>
         <label>
             Street Address
-            <input ng-model="vm.center.Address.StreetAddress"type="text" />
+            <input ng-model="vm.centerToAdd.centerAddress.StreetAddress"type="text" />
         </label>
     </div>
     <div>
         <label>
             City
-            <input ng-model="vm.center.Address.City" type="text" />
+            <input ng-model="vm.centerToAdd.centerAddress.City" type="text" />
         </label>
     </div>
     <div>
         <label>
             State
-            <input ng-model="vm.center.Address.State"type="text" />
+            <input ng-model="vm.centerToAdd.centerAddress.State"type="text" />
         </label>
     </div>
     <div>
         <label>
             Zip Code
-            <input ng-model="vm.ceter.Address.ZipCode" type="text" />
+            <input ng-model="vm.centerToAdd.centerAddress.ZipCode" type="text" />
         </label>
     </div>
     <div>
         <label>
             Telephone Number
-            <input ng-model="vm.center.telephone" type="text" />
+            <input ng-model="vm.centerToAdd.telephoneNumber" type="text" />
         </label>
     </div>
     <div>
         <label>
             Email Address
-            <input ng-model="vm.center.Email" type="email" />
+            <input ng-model="vm.centerToAdd.Email" type="email" />
         </label>
     </div>
     <div>
         <label>
             Contact Person
-            <input ng-model="vm.center.ContactPerson"type="text" />
+            <input ng-model="vm.centerToAdd.ContactPerson"type="text" />
         </label>
     </div>
     <div>
         <label>
             Website
-            <input ng-model="vm.center.Website" type="url" />
+            <input ng-model="vm.centerToAdd.Website" type="url" />
         </label>
     </div>
     <div>
         <label>
             Total Capacity
-            <input ng-model="vm.center.TotalCapacity" type="text" />
+            <input ng-model="vm.centerToAdd.TotalCapacity" type="text" />
         </label>
     </div>
     <div>
         <label>
             Number of Openings
-            <input ng-model="vm.center.NumberOfOpenings"type="text" />
+            <input ng-model="vm.centerToAdd.NumberOfOpenings"type="text" />
         </label>
     </div>
     <div>
         <label>
             Waiting List Size
-            <input ng-model="vm.center.WaitingListSize"type="text" />
+            <input ng-model="vm.centerToAdd.WaitingListSize"type="text" />
         </label>
     </div>
     <div>
         <label>
-            Waiting List Openings
-            <input ng-model="vm.center.WaitingListOpenings" type="text" />
+            Waitlist has openings?
+            <input ng-model="vm.centerToAdd.waitingListOpenings" type="radio" name="waitingListOpenings" ng-value="true" />Yes
+            <input ng-model="vm.centerToAdd.waitingListOpenings" type="radio" name="waitingListOpenings" ng-value="false" />No
+        </label>
+    </div>
+    <div>
+        <label>
+            Business Type
+            <select ng-model="vm.centerToAdd.centerType">
+                <option value="0">Home Based</option>
+                <option value="1">Chain</option>
+                <option value="2">Stand Alone Center</option>
+            </select>
         </label>
     </div>
     <div>
         <label>
             Religious Affliation
-            <input ng-model="vm.center.ReligiousAffliliation" type="radio" name="religion" value="yes" />Yes
-            <input ng-model="vm.center.ReligiousAffliliation" type="radio" name="religion" value="no" />No
+            <input ng-model="vm.centerToAdd.ReligiousAffliliation" type="radio" name="religion" ng-value="true" />Yes
+            <input ng-model="vm.centerToAdd.ReligiousAffliliation" type="radio" name="religion" ng-value="false" />No
         </label>
     </div>
 
@@ -89,6 +100,13 @@
 
 
 </form>
+<select ng-model="vm.selectedType" id="centerDropdown" ng-change="vm.display()">
+    <option> </option>
+    <option value="0">Home Based</option>
+    <option value="1">Chain</option>
+    <option value="2">Stand Alone Center</option>
+</select>
+<hr />
 <table border="1">
     <tr>
         <th>Center Name</th>
@@ -99,18 +117,31 @@
         <th>Telephone Number</th>
         <th>Email Address</th>
         <th>Contact Person</th>
+        <th>Website</th>
+        <th>Total Capacity</th>
+        <th>Number of Openings</th>
+        <th>Waiting List Size</th>
+        <th>Accepting Waitlist</th>
+        <th>Business Model</th>
+        <th>Faith Based</th>
     </tr>
     <tr ng-repeat="center in vm.centers">
         <td>{{center.centerName}}</td>
-        <td>{{center.addressStreet}}</td>
-        <td>{{center.addressCity}}</td>
-        <td>{{center.addressState}}</td>
-        <td>{{center.addressZip}}</td>
-        <td>{{center.telephone}}</td>
+        <td>{{center.centerAddress.streetAddress}}</td>
+        <td>{{center.centerAddress.city}}</td>
+        <td>{{center.centerAddress.state}}</td>
+        <td>{{center.centerAddress.zipCode}}</td>
+        <td>{{center.telephoneNumber}}</td>
         <td>{{center.email}}</td>
         <td>{{center.contactPerson}}</td>
-        <td ng-show="account.getClaim('CanEditDaycare')"><a href="/delete/{{center.id}}">Delete</a></td>
-
+        <td>{{center.website}}</td>
+        <td>{{center.totalCapacity}}</td>
+        <td>{{center.numberOfOpenings}}</td>
+        <td>{{center.waitingListSize}}</td>
+        <td>{{center.waitingListOpenings}}</td>
+        <td>{{center.centerType|BizTypes}}</td>
+        <td>{{center.religiousAffiliation}}</td>
+        <td ng-show="account.getClaim('CanEditDaycare')"><a href="/editCenter/{{center.id}}">Edit</a></td>
+        <td ng-show="account.getClaim('CanEditDaycare')"><a href="/deleteCenter/{{center.id}}">Delete</a></td>
     </tr>
-
 </table>

@@ -10,5 +10,6 @@ namespace FinalProject.Services
         void EditCenter(DaycareCenter center);
         DaycareCenter GetCenter(int id);
         IList<DaycareCenter> ListCenters();
+        IList<DaycareCenter> FilterCenters(DaycareCenter.BizTypes type);
     }
 }

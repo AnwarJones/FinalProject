@@ -22,6 +22,12 @@ namespace FinalProject.Services
             return _repo.Query<DaycareCenter>().ToList();
         }
 
+        public IList<DaycareCenter> FilterCenters(DaycareCenter.BizTypes type)
+        {
+            return _repo.Query<DaycareCenter>().Where(c=>c.CenterType == type).ToList();
+        }
+
+
         public void AddCenter(DaycareCenter center)
         {
             _repo.Add(center);

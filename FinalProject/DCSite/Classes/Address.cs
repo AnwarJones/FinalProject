@@ -9,7 +9,7 @@ namespace FinalProject.DCSite.Classes
 {
     public class Address
     {
-        [Required (ErrorMessage = "Street Address is required") ]
+        [Required(ErrorMessage = "Street Address is required")]
         public string StreetAddress { get; set; }
         [Required(ErrorMessage = "City is required")]
         public string City { get; set; }
@@ -17,6 +17,29 @@ namespace FinalProject.DCSite.Classes
         public string State { get; set; }
         [Required(ErrorMessage = "Zip Code is required")]
         public string ZipCode { get; set; }
+        //public string FormattedAddress = AddressChange();
+        private string formattedAddress;
+
+        public string FormattedAddress
+        {
+            get {
+
+                return StreetAddress.Replace(' ', '+') + '+' + City + '+' + State + '+' + ZipCode;
+            }
+             
+        }
+        //public string AddressChange()
+        //{
+        //    return 
+        //}
+
+
+
+
+
+
+
+
 
     }
 }

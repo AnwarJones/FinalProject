@@ -1,6 +1,22 @@
 ﻿<form ng-submit="vm.save()">
     <div>
         <label>Blog Title</label>
-        <input ng-model="vm."
+        <input type="text" ng-model="vm.blogToAdd.title" />
     </div>
+    <div>
+        <label>Blog Source</label>
+        <input type="text" ng-model="vm.blogToAdd.source" />
+    </div>
+    <div>
+        <label>Posting Date</label>
+        <input type="date" ng-model="vm.blogToAdd.postingDate" />
+    </div>
+    <div>
+        <label>Blog Content</label>
+        <textarea ng-model="vm.blogToAdd.articleContent" rows="25" cols="50" placeholder="Enter article content here..." required></textarea>
+    </div>
+
+    <input type="submit" value="Submit Blog"/>
+    
+    
 </form>

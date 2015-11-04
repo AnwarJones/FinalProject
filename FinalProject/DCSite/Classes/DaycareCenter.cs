@@ -9,6 +9,13 @@ namespace FinalProject.DCSite.Classes
 {
     public class DaycareCenter
     {
+        public enum BizTypes{
+            HomeBase,
+            Chain,
+            StandAlone
+        }
+
+
         public int Id { get; set; }
         [Required (ErrorMessage ="Center Name is required")]
         public string CenterName { get; set; }
@@ -23,6 +30,9 @@ namespace FinalProject.DCSite.Classes
         public int NumberOfOpenings { get; set; } 
         public int WaitingListSize { get; set; }
         public bool WaitingListOpenings { get; set; }
+        public BizTypes CenterType { get; set; }
         public bool ReligiousAffiliation { get; set; }
+
+
     }
 }

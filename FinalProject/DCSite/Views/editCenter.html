@@ -1,0 +1,101 @@
+﻿<form ng-submit="vm.addCenter()">
+    <div>
+        <label>
+            Centers Name
+            <input ng-model="vm.centerToEdit.centerName" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Street Address
+            <input ng-model="vm.centerToEdit.centerAddress.streetAddress" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            City
+            <input ng-model="vm.centerToEdit.centerAddress.city" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            State
+            <input ng-model="vm.centerToEdit.centerAddress.state" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Zip Code
+            <input ng-model="vm.centerToEdit.centerAddress.zipCode" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Telephone Number
+            <input ng-model="vm.centerToEdit.telephoneNumber" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Email Address
+            <input ng-model="vm.centerToEdit.email" type="email" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Contact Person
+            <input ng-model="vm.centerToEdit.contactPerson" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Website
+            <input ng-model="vm.centerToEdit.website" type="url" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Total Capacity
+            <input ng-model="vm.centerToEdit.totalCapacity" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Number of Openings
+            <input ng-model="vm.centerToEdit.numberOfOpenings" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Waiting List Size
+            <input ng-model="vm.centerToEdit.waitingListSize" type="text" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Waitlist has openings?
+            <input ng-model="vm.centerToEdit.waitingListOpenings" type="radio" name="waitingListOpenings" ng-value="true" />Yes
+            <input ng-model="vm.centerToEdit.waitingListOpenings" type="radio" name="waitingListOpenings" ng-value="false" />No
+        </label>
+    </div>
+    <div>
+        <label>
+            Business Type
+            <select ng-model="vm.centerToEdit.centerType">
+                <option value="0">Home Based</option>
+                <option value="1">Chain</option>
+                <option value="2">Stand Alone Center</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label>
+            Religious Affliation
+            <input ng-model="vm.centerToEdit.religiousAffiliation" type="radio" name="religion" ng-value="true" />Yes
+            <input ng-model="vm.centerToEdit.religiousAffiliation" type="radio" name="religion" ng-value="false" />No
+        </label>
+    </div>
+
+    <input type="submit" value="Submit changes" />
+
+</form>
