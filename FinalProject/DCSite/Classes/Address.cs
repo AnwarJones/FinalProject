@@ -17,6 +17,8 @@ namespace FinalProject.DCSite.Classes
         public string State { get; set; }
         [Required(ErrorMessage = "Zip Code is required")]
         public string ZipCode { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
         //public string FormattedAddress = AddressChange();
         private string formattedAddress;
 

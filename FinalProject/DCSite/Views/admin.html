@@ -2,98 +2,113 @@
     <div>
         <label>
             Centers Name
-            <input ng-model="vm.centerToAdd.centerName" type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.centerName" type="text" />
+
     </div>
     <div>
         <label>
             Street Address
-            <input ng-model="vm.centerToAdd.centerAddress.StreetAddress"type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.centerAddress.StreetAddress" type="text" />
+
     </div>
     <div>
         <label>
             City
-            <input ng-model="vm.centerToAdd.centerAddress.City" type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.centerAddress.City" type="text" />
+
     </div>
     <div>
         <label>
             State
-            <input ng-model="vm.centerToAdd.centerAddress.State"type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.centerAddress.State" type="text" />
+
     </div>
     <div>
         <label>
             Zip Code
-            <input ng-model="vm.centerToAdd.centerAddress.ZipCode" type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.centerAddress.ZipCode" type="text" />
+
     </div>
     <div>
         <label>
             Telephone Number
-            <input ng-model="vm.centerToAdd.telephoneNumber" type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.telephoneNumber" type="text" />
+
     </div>
     <div>
         <label>
             Email Address
-            <input ng-model="vm.centerToAdd.Email" type="email" />
         </label>
+        <input ng-model="vm.centerToAdd.Email" type="email" />
+
     </div>
     <div>
         <label>
             Contact Person
-            <input ng-model="vm.centerToAdd.ContactPerson"type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.ContactPerson" type="text" />
+
     </div>
     <div>
         <label>
             Website
-            <input ng-model="vm.centerToAdd.Website" type="url" />
         </label>
+        <input ng-model="vm.centerToAdd.Website" type="text" />
+
     </div>
     <div>
         <label>
             Total Capacity
-            <input ng-model="vm.centerToAdd.TotalCapacity" type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.TotalCapacity" type="text" />
+
     </div>
     <div>
         <label>
             Number of Openings
-            <input ng-model="vm.centerToAdd.NumberOfOpenings"type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.NumberOfOpenings" type="text" />
+
     </div>
     <div>
         <label>
             Waiting List Size
-            <input ng-model="vm.centerToAdd.WaitingListSize"type="text" />
         </label>
+        <input ng-model="vm.centerToAdd.WaitingListSize" type="text" />
+
     </div>
     <div>
         <label>
             Waitlist has openings?
-            <input ng-model="vm.centerToAdd.waitingListOpenings" type="radio" name="waitingListOpenings" ng-value="true" />Yes
-            <input ng-model="vm.centerToAdd.waitingListOpenings" type="radio" name="waitingListOpenings" ng-value="false" />No
         </label>
+        <input ng-model="vm.centerToAdd.waitingListOpenings" type="radio" name="waitingListOpenings" ng-value="true" />Yes
+        <input ng-model="vm.centerToAdd.waitingListOpenings" type="radio" name="waitingListOpenings" ng-value="false" />No
+
     </div>
     <div>
         <label>
             Business Type
-            <select ng-model="vm.centerToAdd.centerType">
-                <option value="0">Home Based</option>
-                <option value="1">Chain</option>
-                <option value="2">Stand Alone Center</option>
-            </select>
         </label>
+        <select ng-model="vm.centerToAdd.centerType">
+            <option value="0">Home Based</option>
+            <option value="1">Chain</option>
+            <option value="2">Stand Alone Center</option>
+        </select>
+
     </div>
     <div>
         <label>
             Religious Affliation
-            <input ng-model="vm.centerToAdd.ReligiousAffliliation" type="radio" name="religion" ng-value="true" />Yes
-            <input ng-model="vm.centerToAdd.ReligiousAffliliation" type="radio" name="religion" ng-value="false" />No
         </label>
+        <input ng-model="vm.centerToAdd.ReligiousAffliliation" type="radio" name="religion" ng-value="true" />Yes
+        <input ng-model="vm.centerToAdd.ReligiousAffliliation" type="radio" name="religion" ng-value="false" />No
+
     </div>
 
     <input type="submit" value="Add New Center"/>

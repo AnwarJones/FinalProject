@@ -27,8 +27,16 @@ var DCSiteApp;
                 this.$location = $location;
                 this.centers = adminService.listCenters();
             }
+            AdminController.prototype.geocode = function () {
+                this.adminService.geocodeAddress(this.centerToAdd.centerAddress);
+            };
             AdminController.prototype.addCenter = function () {
                 var _this = this;
+                debugger;
+                //let address = this.centerToAdd.centerAddress;
+                //let addressString = `${address.StreetAddress.replace(/ /g, "+") }+${address.City.replace(/ /g,"+")}+${address.State}+${address.ZipCode}`;
+                //let geocodeAddress = https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
+                this.geocode();
                 this.adminService.save(this.centerToAdd).then(function () {
                     _this.$location.path('/admin');
                 });
@@ -133,21 +141,44 @@ var DCSiteApp;
         Controllers.DelCenterController = DelCenterController;
         var Page1Controller = (function () {
             function Page1Controller() {
-                this.message = 'This is the main page useful for holding site mission statement and purpose';
             }
             return Page1Controller;
         })();
         Controllers.Page1Controller = Page1Controller;
         var MapController = (function () {
             function MapController(mapService) {
+                var _this = this;
                 this.mapService = mapService;
-                this.map = { center: { latitude: 33.7550, longitude: -84.3900 }, zoom: 10 };
+                this.map = { center: { latitude: 33.8550, longitude: -84.3900 }, zoom: 12 };
                 this.markerList = [];
                 this.addresses = [];
-                this.centers = mapService.listCenters(); /*.then(() => { });*/
+                this.centers = mapService.listCenters();
+                mapService.listCenters().$promise.then(function (results) {
+                    for (var i = 0; i < results.length; i++) {
+                        var id = i;
+                        var lat = results[i].centerAddress.latitude;
+                        var long = results[i].centerAddress.longitude;
+                        var coords = { latitude: lat, longitude: long };
+                        var marker = { markerId: id, coordinates: coords };
+                        _this.markerList.push(marker);
+                    }
+                });
+                jQuery(document).ready(function ($) {
+                    $('.cd-btn').on('click', function (event) {
+                        event.preventDefault();
+                        $('.cd-panel').addClass('is-visible');
+                    });
+                    $('.cd-panel').on('click', function (event) {
+                        if ($(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close')) {
+                            $('.cd-panel').removeClass('is-visible');
+                            event.preventDefault();
+                        }
+                    });
+                });
             }
             return MapController;
         })();
         Controllers.MapController = MapController;
     })(Controllers = DCSiteApp.Controllers || (DCSiteApp.Controllers = {}));
 })(DCSiteApp || (DCSiteApp = {}));
+//# sourceMappingURL=controllers.js.map

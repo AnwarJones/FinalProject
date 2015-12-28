@@ -1,14 +1,21 @@
-﻿<a href="/addBlog">Create New Post</a>
+﻿<a href="/addBlog" ng-show="account.getClaim('CanEditDaycare')">Create New Post</a>
 
 
-<ul>
-    <li ng-repeat="blog in vm.blogs">
-        <div>{{blog.title}}</div>
-        <div>{{blog.source}}</div>
-        <div>{{blog.postingDate}}</div>
-        <div>{{blog.articleContent}}</div>
-        <div ng-show="account.getClaim('CanEditDaycare')"><a href="/editBlog/{{blog.id}}">Edit</a></div>
-        <div ng-show="account.getClaim('CanEditDaycare')"><a href="/deleteBlog/{{blog.id}}">Delete</a></div>
-    </li>
+<div class="row">
+    <div class="col-md-8">
+        <div class="blogcontainer">
+            <ul>
+                <li ng-repeat="blog in vm.blogs" class="blog">
+                    <h3>{{blog.title}}</h3>
+                    <h4>Source:{{blog.source}}</h4>
+                    <h5>{{blog.postingDate}}</h5>
+                    <div class="blogcontent"><p>{{blog.articleContent}}</p></div>
+                    <div ng-show="account.getClaim('CanEditDaycare')"><a href="/editBlog/{{blog.id}}">Edit</a></div>
+                    <div ng-show="account.getClaim('CanEditDaycare')"><a href="/deleteBlog/{{blog.id}}">Delete</a></div>
+                <br />
+                </li>
 
-</ul>
+            </ul>
+        </div>
+    </div>
+</div>

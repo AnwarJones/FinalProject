@@ -11,17 +11,16 @@
 <body ng-controller="AccountController as account">
     <div class="container-fluid">
         <div class="row">
-            <div>
-                <h3 class="box1">Child Care Sea<a href="/admin">r</a>ch</h3>
+            <div class="col-md-12">
+                <h2 class="box1">Child Care Sea<a ng-hide="!account.getClaim('CanEditDaycare')"href="/admin">r</a><span ng-show="!account.getClaim('CanEditDaycare')">r</span>ch</h2>
                 <a href="/signin" ng-show="!account.isLoggedIn()">Sign In</a>
                 <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">logout</a>
             </div>
-            <div>
+            <div class="col-md-12">
                 <ul class="nav navbar-nav">
                     <li><a class="btn btn-default" href="/main">Main</a></li>
                     <li><a class="btn btn-default" href="/browse">Browse Centers</a></li>
                     <li><a class="btn btn-default" href="/map">Map</a></li>
-                    <li><a class="btn btn-default" href="/tipsTools">Tips and Tools</a></li>
                     <li><a class="btn btn-default" href="/blog">Blog</a></li>
                 </ul>
 
@@ -43,6 +42,7 @@
         <script src="~/Scripts/lodash.min.js"></script>
         <script src="~/Scripts/angular-simple-logger.js"></script> 
         <script src="~/Scripts/angular-google-maps.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" type="text/javascript"></script>
     
     
         <script src="~/DCSite/app.js"></script>
