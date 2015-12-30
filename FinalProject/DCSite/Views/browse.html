@@ -1,44 +1,48 @@
-﻿<h1>Browse Page</h1>
-<select ng-model="vm.selectedType" id="centerDropdown" ng-change="vm.display()">
-    <option> </option>
-    <option value="0">Home Based</option>
-    <option value="1">Chain</option>
-    <option value="2">Stand Alone Center</option>
-</select>
-<hr />
-<table border="1">
-    <tr>
-        <th>Center Name</th>
-        <th>Street</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip Code</th>
-        <th>Telephone Number</th>
-        <th>Email Address</th>
-        <th>Contact Person</th>
-        <th>Website</th>
-        <th>Total Capacity</th>
-        <th>Number of Openings</th>
-        <th>Waiting List Size</th>
-        <th>Accepting Waitlist</th>
-        <th>Business Model</th>
-        <th>Faith Based</th>
-    </tr>
-    <tr ng-repeat="center in vm.centers">
-        <td>{{center.centerName}}</td>
-        <td>{{center.centerAddress.streetAddress}}</td>
-        <td>{{center.centerAddress.city}}</td>
-        <td>{{center.centerAddress.state}}</td>
-        <td>{{center.centerAddress.zipCode}}</td>
-        <td>{{center.telephoneNumber}}</td>
-        <td>{{center.email}}</td>
-        <td>{{center.contactPerson}}</td>
-        <td>{{center.website}}</td>
-        <td>{{center.totalCapacity}}</td>
-        <td>{{center.numberOfOpenings}}</td>
-        <td>{{center.waitingListSize}}</td>
-        <td>{{center.waitingListOpenings}}</td>
-        <td>{{center.centerType|BizTypes}}</td>
-        <td>{{center.religiousAffiliation}}</td>
-    </tr>
-</table>
+﻿<div class="row">
+    <div class="col-md-12">
+        <h1>Browse Page</h1>
+        <select ng-model="vm.selectedType" id="centerDropdown" ng-change="vm.display()">
+            <option> </option>
+            <option value="0">Home Based</option>
+            <option value="1">Chain</option>
+            <option value="2">Stand Alone Center</option>
+        </select>
+        <hr />
+        <table border="1">
+            <tr>
+                <th>Center Name</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+                <th>Telephone Number</th>
+                <th>Email Address</th>
+                <th>Contact Person</th>
+                <th>Website</th>
+                <th>Total Capacity</th>
+                <th>Number of Openings</th>
+                <th>Waiting List Size</th>
+                <th>Accepting Waitlist</th>
+                <th>Business Model</th>
+                <th>Faith Based</th>
+            </tr>
+            <tr ng-repeat="center in vm.centers">
+                <td>{{center.centerName}}</td>
+                <td>{{center.centerAddress.streetAddress}}</td>
+                <td>{{center.centerAddress.city}}</td>
+                <td>{{center.centerAddress.state}}</td>
+                <td>{{center.centerAddress.zipCode}}</td>
+                <td>{{center.telephoneNumber}}</td>
+                <td>{{center.email}}</td>
+                <td>{{center.contactPerson}}</td>
+                <td>{{center.website}}</td>
+                <td>{{center.totalCapacity}}</td>
+                <td>{{center.numberOfOpenings}}</td>
+                <td>{{center.waitingListSize}}</td>
+                <td>{{center.waitingListOpenings}}</td>
+                <td>{{center.centerType|BizTypes}}</td>
+                <td>{{center.religiousAffiliation}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

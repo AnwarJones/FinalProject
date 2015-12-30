@@ -25,19 +25,14 @@
             <div class="right">
                 <label>Verify Password</label>
                 <input name="password" ng-model="vm.registerUser.confirmPassword" />
-                <input class="right" type="submit" value="Sign In" />
                 <div ng-show="loginForm.password.$touched&& loginForm.password.$error.required">Password is required.</div>
             </div>
+            <input class="right" type="submit" value="Sign In" />
+
             
         </form>
 
     </div>
-
-</div>
-
-
-
-
     <div class="col-md-offset-3 col-md-5">
         <form name="signinForm" ng-submit="vm.login()">
             <div class="right">
@@ -51,8 +46,15 @@
                 <input class="right" type="submit" value="Sign In" />
                 <div ng-show="loginForm.password.$touched&& loginForm.username.$error.required">Password is required.</div>
             </div>
-            
+
         </form>
+    </div>
+
+
+
 </div>
 
 
+
+
+    

@@ -6,7 +6,15 @@ var DCSiteApp;
             function AdminService($resource, $http) {
                 this.$http = $http;
                 this.AdminResource = $resource('/api/daycare/:id');
+                //this.GeocodeResource = $resource('https://maps.googleapis.com/maps/api/geocode/json?address=');
             }
+            //private GeocodeResource;
+            AdminService.prototype.geocodeAddress = function (address) {
+                var addressString = address.StreetAddress.replace(/ /g, "+") + "+" + address.City.replace(/ /g, "+") + "+" + address.State + "+" + address.ZipCode;
+                var key = 'AIzaSyB17QKB9z23NXiouMytuwJMd-C3-Zrea9c';
+                var data = this.$http.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "& key=" + "key");
+                console.log(data);
+            };
             AdminService.prototype.listCenters = function () {
                 return this.AdminResource.query();
             };
@@ -72,11 +80,25 @@ var DCSiteApp;
         angular.module('DCSiteApp').service('BrowseService', BrowseService);
         var MapService = (function () {
             function MapService($resource) {
-                var _this = this;
+                this.addressArray = [];
                 this.mapResource = $resource('/api/daycare/:id');
-                this.mapResource.query().$promise.then(function (results) {
-                    _this.addressArray = results;
-                    console.log(results[0].centerAddress.formattedAddress);
+                //this.mapResource.query().$promise.then((results) => {
+                //    for (let i = 0; i < results.length; i++) {
+                //        this.addressArray.push(results[i].centerAddress.formattedAddress);
+                //    }
+                //    console.log(this.addressArray);
+                //});
+                jQuery(document).ready(function ($) {
+                    $('.cd-btn').on('click', function (event) {
+                        event.preventDefault();
+                        $('.cd-panel').addClass('is-visible');
+                    });
+                    $('.cd-panel').on('click', function (event) {
+                        if ($(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close')) {
+                            $('.cd-panel').removeClass('is-visible');
+                            event.preventDefault();
+                        }
+                    });
                 });
             }
             MapService.prototype.listCenters = function () {
@@ -88,3 +110,4 @@ var DCSiteApp;
         angular.module('DCSiteApp').service('mapService', MapService);
     })(Services = DCSiteApp.Services || (DCSiteApp.Services = {}));
 })(DCSiteApp || (DCSiteApp = {}));
+//# sourceMappingURL=services.js.map

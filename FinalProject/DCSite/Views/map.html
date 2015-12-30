@@ -2,14 +2,44 @@
 
 <div class="col-md-8">
     <ui-gmap-google-map center='vm.map.center' zoom='vm.map.zoom'>
-        <!--<marker ng-repeat="marker in vm.markerList" coords="marker"></marker>-->
+        <ui-gmap-marker ng-repeat="marker in vm.markerList" idKey="marker.markerId" coords='marker.coordinates'><a href="cd-btn"></a></ui-gmap-marker>
     </ui-gmap-google-map>
 </div>
 
 <div class="col-md-4">
     <table border="1" >
+        <tr>
+            <th>Center Name</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Telephone Number</th>
+        </tr>
         <tr ng-repeat="center in vm.centers">
             <td>{{center.centerName}}</td>
+            <td>{{center.centerAddress.streetAddress}}</td>
+            <td>{{center.centerAddress.city}}</td>
+            <td>{{center.centerAddress.state}}</td>
+            <td>{{center.telephoneNumber}}</td>
         </tr>
     </table>
+</div>
+
+<div class="col-md-4 cd-panel from-right">
+    <header class="cd-panel-header">
+        <a href="#0" class="cd-panel-close">Close</a>
+    </header>
+
+    <div class="cd-panel-container">
+        <div class="cd-panel-content">
+            <table border="1">
+                <tr ng-repeat="center in vm.centers">
+                    <td>{{center.centerName}}</td>
+                    <td>{{center.centerAddress.StreetAddress}} {{center.centerAddress.city}}, {{center.centerAddress.state}} {{center.centerAddress.zipCode}}</td>
+                    <td>{{center.telephoneNumber}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </div>

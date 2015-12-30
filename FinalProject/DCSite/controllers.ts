@@ -30,8 +30,21 @@
         public centers;
         public centerToAdd;
         public selectedType;
+        public address;
+
+        public geocode() {
+            this.adminService.geocodeAddress(this.centerToAdd.centerAddress);
+        }
 
         public addCenter() {
+            debugger
+            //let address = this.centerToAdd.centerAddress;
+            //let addressString = `${address.StreetAddress.replace(/ /g, "+") }+${address.City.replace(/ /g,"+")}+${address.State}+${address.ZipCode}`;
+            //let geocodeAddress = https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
+
+            this.geocode();
+        
+
             this.adminService.save(this.centerToAdd).then(() => {
                 this.$location.path('/admin');
             });
@@ -48,10 +61,12 @@
             }
         }
 
-        constructor(private adminService: DCSiteApp.Services.BrowseService,
+        constructor(private adminService: DCSiteApp.Services.AdminService,
             private $location: ng.ILocationService
         ) {
             this.centers = adminService.listCenters();
+                        
+
         }
 
     }
@@ -162,18 +177,41 @@
 
 
     export class Page1Controller {
-        message = 'This is the main page useful for holding site mission statement and purpose';
     }
 
     export class MapController {
-        public map = { center: { latitude: 33.7550, longitude: -84.3900 }, zoom: 10 };
+        public map = { center: { latitude: 33.8550, longitude: -84.3900 }, zoom: 12 };
         public markerList = [];
         public centers;
         public addresses = [];
+
+       
+
         
         constructor(private mapService: DCSiteApp.Services.MapService) {
-            this.centers = mapService.listCenters()/*.then(() => { });*/
-           
+            this.centers = mapService.listCenters();
+            mapService.listCenters().$promise.then((results) => {
+                for (let i = 0; i < results.length; i++) {
+                    let id = i;
+                    let lat = results[i].centerAddress.latitude;
+                    let long = results[i].centerAddress.longitude;
+                    let coords = { latitude: lat, longitude: long };
+                    let marker = { markerId: id, coordinates: coords };
+                    this.markerList.push(marker)
+                }
+            });
+            jQuery(document).ready(function ($) {
+                $('.cd-btn').on('click', function (event) {
+                    event.preventDefault();
+                    $('.cd-panel').addClass('is-visible');
+                });
+                $('.cd-panel').on('click', function (event) {
+                    if ($(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close')) {
+                        $('.cd-panel').removeClass('is-visible');
+                        event.preventDefault();
+                    }
+                })
+            });           
         }
     }
 

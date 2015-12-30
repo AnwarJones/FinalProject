@@ -277,6 +277,14 @@
     <Compile Include="Migrations\201511021755567_letssee.Designer.cs">
       <DependentUpon>201511021755567_letssee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511240548549_withlatlong.cs" />
+    <Compile Include="Migrations\201511240548549_withlatlong.Designer.cs">
+      <DependentUpon>201511240548549_withlatlong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511240607504_changedspelling.cs" />
+    <Compile Include="Migrations\201511240607504_changedspelling.Designer.cs">
+      <DependentUpon>201511240607504_changedspelling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DaycareEFRepository.cs" />
     <Compile Include="Models\EFRepository.cs" />
     <Compile Include="Models\IDaycareEFRepository.cs" />
@@ -425,6 +433,7 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="typings\google.maps.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -465,6 +474,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511021755567_letssee.resx">
       <DependentUpon>201511021755567_letssee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511240548549_withlatlong.resx">
+      <DependentUpon>201511240548549_withlatlong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511240607504_changedspelling.resx">
+      <DependentUpon>201511240607504_changedspelling.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

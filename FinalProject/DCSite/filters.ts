@@ -13,12 +13,7 @@
     angular.module('DCSiteApp').filter('BizTypes', BizTypes);
 
 
-    function DateTime() {
-        return function (input: string) {
-            return new Date(input);
-        };
-    }
-    angular.module('DCSiteApp').filter('DateTime', DateTime)
+    
     
 
 }

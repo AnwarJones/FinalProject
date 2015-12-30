@@ -1,6 +1,16 @@
 ﻿namespace DCSiteApp.Services {
     export class AdminService{
         private AdminResource;
+        //private GeocodeResource;
+
+        public geocodeAddress(address) {
+
+            let addressString = `${address.StreetAddress.replace(/ /g, "+") }+${address.City.replace(/ /g, "+") }+${address.State}+${address.ZipCode}`
+            let key = 'AIzaSyB17QKB9z23NXiouMytuwJMd-C3-Zrea9c';
+            let data = this.$http.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "& key=" + "key");
+            console.log(data);
+
+        }
 
         public listCenters() {
             return this.AdminResource.query();
@@ -21,6 +31,7 @@
         }
         constructor($resource: ng.resource.IResourceService, private $http: ng.IHttpService) {
             this.AdminResource = $resource('/api/daycare/:id');
+            //this.GeocodeResource = $resource('https://maps.googleapis.com/maps/api/geocode/json?address=');
         }
     }
     angular.module("DCSiteApp").service("adminService", AdminService);
@@ -81,7 +92,7 @@
     export class MapService {
         public mapResource
         public centers;
-        public addressArray;
+        public addressArray=[];
         
         
         public listCenters() {
@@ -91,12 +102,27 @@
         }
 
 
+
         constructor($resource: ng.resource.IResourceService ) {
             this.mapResource = $resource('/api/daycare/:id');
-            this.mapResource.query().$promise.then((results) => {
-                this.addressArray = results
-                console.log(results[0].centerAddress.formattedAddress);
-            });
+            //this.mapResource.query().$promise.then((results) => {
+            //    for (let i = 0; i < results.length; i++) {
+            //        this.addressArray.push(results[i].centerAddress.formattedAddress);
+            //    }
+            //    console.log(this.addressArray);
+            //});
+            jQuery(document).ready(function ($) {
+                $('.cd-btn').on('click', function (event) {
+                    event.preventDefault();
+                    $('.cd-panel').addClass('is-visible');
+                });
+                $('.cd-panel').on('click', function (event) {
+                    if ($(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close')) {
+                        $('.cd-panel').removeClass('is-visible');
+                        event.preventDefault();
+                    }
+                })
+            });  
             
         }
     }

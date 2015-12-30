@@ -12,11 +12,6 @@ var DCSiteApp;
             };
         }
         angular.module('DCSiteApp').filter('BizTypes', BizTypes);
-        function DateTime() {
-            return function (input) {
-                return new Date(input);
-            };
-        }
-        angular.module('DCSiteApp').filter('DateTime', DateTime);
     })(Filters = DCSiteApp.Filters || (DCSiteApp.Filters = {}));
 })(DCSiteApp || (DCSiteApp = {}));
+//# sourceMappingURL=filters.js.map
